@@ -2,18 +2,18 @@ import { createRouter, createWebHistory } from "vue-router"
 import { useAuthStore } from "../stores/auth"
 
 // Public Pages
-// import Home from "../pages/Home.vue"
-// import ArticleShow from "../pages/ArticleShow.vue"
-// import SectionShow from "../pages/SectionShow.vue"
-// import Login from "../pages/Login.vue"
-// import NotFound from "../pages/NotFound.vue"
+import Home from "../pages/Home.vue"
+import ArticleShow from "../pages/ArticleShow.vue"
+import SectionShow from "../pages/SectionShow.vue"
+import Login from "../pages/Login.vue"
+import NotFound from "../pages/NotFound.vue"
 
 // Admin Layout
 import AdminLayout from "../layouts/AdminLayout.vue"
 
 // Admin Pages
-// import Dashboard from "../pages/admin/Dashboard.vue"
-// import ArticleIndex from "../pages/admin/articles/Index.vue"
+import Dashboard from "../pages/admin/Dashboard.vue"
+import ArticleIndex from "../pages/admin/articles/Index.vue"
 // import ArticleCreate from "../pages/admin/articles/Create.vue"
 // import ArticleEdit from "../pages/admin/articles/Edit.vue"
 // import SectionIndex from "../pages/admin/sections/Index.vue"
