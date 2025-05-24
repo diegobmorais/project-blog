@@ -3,7 +3,7 @@
       <div class="max-w-md w-full space-y-8">
         <div>
           <router-link to="/" class="flex justify-center">
-            <h2 class="text-3xl font-bold text-gray-900">ModernBlog</h2>
+            <h2 class="text-3xl font-bold text-gray-900">Meu Blog</h2>
           </router-link>
           <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Faça login em sua conta

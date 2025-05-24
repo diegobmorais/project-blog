@@ -115,16 +115,6 @@ Após a instalação, você pode acessar:
 - Site público: http://localhost
 - Painel administrativo: http://localhost/admin
 
-### Credenciais padrão
+## View
 
-**Administrador:**
-- Email: admin@example.com
-- Senha: password
-
-**Autor:**
-- Email: author@example.com
-- Senha: password
-
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
+![alt text](image.png)

@@ -1,14 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-
 module.exports = {
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+  ],
   theme: {
-    ...defaultConfig.theme,
     extend: {
-      ...defaultConfig.theme.extend,
       colors: {
-        ...defaultConfig.theme.extend.colors,
         primary: {
-          ...defaultConfig.theme.extend.colors.primary,
           50: "#f0f9ff",
           100: "#e0f2fe",
           200: "#bae6fd",
@@ -22,7 +21,6 @@ module.exports = {
           950: "#082f49",
         },
         secondary: {
-          ...defaultConfig.theme.extend.colors.secondary,
           50: "#f5f7fa",
           100: "#ebeef5",
           200: "#d2d9e7",
@@ -36,7 +34,6 @@ module.exports = {
           950: "#1c2333",
         },
         accent: {
-          ...defaultConfig.theme.extend.colors.accent,
           50: "#f5f3ff",
           100: "#ede9fe",
           200: "#ddd6fe",
@@ -100,7 +97,6 @@ module.exports = {
     },
   },
   plugins: [
-    ...defaultConfig.plugins,
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),

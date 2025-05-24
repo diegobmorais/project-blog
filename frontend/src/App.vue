@@ -17,7 +17,7 @@ import Notifications from './components/ui/Notifications.vue';
 const authStore = useAuthStore();
 
 // Check if user is already authenticated
-onMounted(() => {
-  authStore.checkAuth();
-});
+// onMounted(() => {
+//   authStore.checkAuth();
+// });
 </script>

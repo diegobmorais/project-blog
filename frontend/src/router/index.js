@@ -14,18 +14,18 @@ import AdminLayout from "../layouts/AdminLayout.vue"
 // Admin Pages
 import Dashboard from "../pages/admin/Dashboard.vue"
 import ArticleIndex from "../pages/admin/articles/Index.vue"
-// import ArticleCreate from "../pages/admin/articles/Create.vue"
-// import ArticleEdit from "../pages/admin/articles/Edit.vue"
-// import SectionIndex from "../pages/admin/sections/Index.vue"
-// import SectionCreate from "../pages/admin/sections/Create.vue"
-// import SectionEdit from "../pages/admin/sections/Edit.vue"
-// import UserIndex from "../pages/admin/users/Index.vue"
-// import UserCreate from "../pages/admin/users/Create.vue"
-// import UserEdit from "../pages/admin/users/Edit.vue"
-// import AdIndex from "../pages/admin/ads/Index.vue"
-// import AdCreate from "../pages/admin/ads/Create.vue"
-// import AdEdit from "../pages/admin/ads/Edit.vue"
-// import Profile from "../pages/admin/Profile.vue"
+import ArticleCreate from "../pages/admin/articles/Create.vue"
+import ArticleEdit from "../pages/admin/articles/Edit.vue"
+import SectionIndex from "../pages/admin/sections/Index.vue"
+import SectionCreate from "../pages/admin/sections/Create.vue"
+import SectionEdit from "../pages/admin/sections/Edit.vue"
+import UserIndex from "../pages/admin/users/Index.vue"
+import UserCreate from "../pages/admin/users/Create.vue"
+import UserEdit from "../pages/admin/users/Edit.vue"
+import AdIndex from "../pages/admin/ads/Index.vue"
+import AdCreate from "../pages/admin/ads/Create.vue"
+import AdEdit from "../pages/admin/ads/Edit.vue"
+import Profile from "../pages/admin/Profile.vue"
 
 const routes = [
   // Public routes
@@ -36,13 +36,13 @@ const routes = [
     meta: { title: "Home" },
   },
   {
-    path: "/article/:slug",
+    path: "/articles",
     name: "article.show",
     component: ArticleShow,
     meta: { title: "Article" },
   },
   {
-    path: "/section/:slug",
+    path: "/sections",
     name: "section.show",
     component: SectionShow,
     meta: { title: "Section" },
@@ -58,7 +58,7 @@ const routes = [
   {
     path: "/admin",
     component: AdminLayout,
-    meta: { requiresAuth: true },
+    // meta: { requiresAuth: true },
     children: [
       {
         path: "",

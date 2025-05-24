@@ -171,17 +171,17 @@
     try {
       loading.value = true;
       
-      // Carregar artigos em destaque
-      const featuredResponse = await articleStore.getFeatured();
-      featuredArticles.value = featuredResponse.data || [];
+      // // Carregar artigos em destaque
+      // const featuredResponse = await articleStore.getFeatured();
+      // featuredArticles.value = featuredResponse.data || [];
       
-      // Carregar últimos artigos
-      const latestResponse = await articleStore.getLatest();
-      latestArticles.value = latestResponse.data || [];
+      // // Carregar últimos artigos
+      // const latestResponse = await articleStore.getLatest();
+      // latestArticles.value = latestResponse.data || [];
       
-      // Carregar seções
-      const sectionsResponse = await sectionStore.getAll();
-      sections.value = sectionsResponse.data || [];
+      // // Carregar seções
+      // const sectionsResponse = await sectionStore.getAll();
+      // sections.value = sectionsResponse.data || [];
       
     } catch (error) {
       console.error('Erro ao carregar dados:', error);
