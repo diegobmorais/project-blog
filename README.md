@@ -28,76 +28,48 @@ Um blog moderno construído com Laravel 12 e Vue 3, com painel administrativo co
 ### Usando Docker com Laravel Sail
 
 1. Clone o repositório:
-\`\`\`bash
-git clone https://github.com/diegobmorais/project-blog.git
-\`\`\`
+  \`\`\`bash
+  git clone https://github.com/diegobmorais/project-blog.git
+  \`\`\`
 
 2. Instale as dependências do PHP
 
 3. Configure o arquivo .env:
-\`\`\`bash
-cp .env.example .env
-\`\`\`
+  \`\`\`bash
+  cp .env.example .env
+  \`\`\`
 
 4. Inicie os contêineres Docker:
-\`\`\`bash
-docker compose up -d
-\`\`\`
+  \`\`\`bash
+  docker compose up -d --build
+  \`\`\`
 
 6. Gere a chave da aplicação:
-\`\`\`bash
-artisan key:generate
-\`\`\`
+  \`\`\`bash
+  artisan key:generate
+  \`\`\`
 
 7. Execute as migrações e seeders:
-\`\`\`bash
-artisan migrate --seed
-\`\`\`
+  \`\`\`bash
+  artisan migrate --seed
+  \`\`\`
 
 8. Instale as dependências do Node.js e compile os assets:
-\`\`\`bash
-npm install
-npm run dev
-\`\`\`
+    \`\`\`bash
+    npm install
+    npm run dev
+    \`\`\`
 
-### Instalação Local (sem Docker)
-
-1. Clone o repositório:
-\`\`\`bash
-git clone https://github.com/seu-usuario/modern-blog.git
-cd modern-blog
-\`\`\`
-
-2. Instale as dependências do PHP:
-\`\`\`bash
-composer install
-\`\`\`
-
-3. Configure o arquivo .env:
-\`\`\`bash
-cp .env.example .env
-\`\`\`
-
-4. Gere a chave da aplicação:
-\`\`\`bash
-php artisan key:generate
-\`\`\`
-
-5. Configure seu banco de dados no arquivo .env e execute as migrações e seeders:
-\`\`\`bash
-php artisan migrate --seed
-\`\`\`
-
-6. Instale as dependências do Node.js e compile os assets:
-\`\`\`bash
-npm install
-npm run dev
-\`\`\`
-
-7. Inicie o servidor:
-\`\`\`bash
-php artisan serve
-\`\`\`
+9. Corrija os permissionamentos dentro do container
+   \`\`\`bash
+   chown -R www-data:www-data /var/www/storage
+   chmod -R 775 storage bootstrap/cache
+   \`\`\`
+   
+11. Publique o provider sanctum
+  \`\`\`bash
+  php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+  \`\`\`
 
 ## Acessando o Sistema
 
