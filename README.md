@@ -29,7 +29,7 @@ Um blog moderno construído com Laravel 12 e Vue 3, com painel administrativo co
 
 1. Clone o repositório:
 \`\`\`bash
-git clone https://github.com/seu-usuario/modern-blog.git
+git clone https://github.com/diegobmorais/project-blog.git
 cd modern-blog
 \`\`\`
 
