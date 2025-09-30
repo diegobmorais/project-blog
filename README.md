@@ -30,18 +30,9 @@ Um blog moderno construído com Laravel 12 e Vue 3, com painel administrativo co
 1. Clone o repositório:
 \`\`\`bash
 git clone https://github.com/diegobmorais/project-blog.git
-cd modern-blog
 \`\`\`
 
-2. Instale as dependências do PHP:
-\`\`\`bash
-docker run --rm \
-    -u "$(id -u):$(id -g)" \
-    -v "$(pwd):/var/www/html" \
-    -w /var/www/html \
-    laravelsail/php82-composer:latest \
-    composer install --ignore-platform-reqs
-\`\`\`
+2. Instale as dependências do PHP
 
 3. Configure o arquivo .env:
 \`\`\`bash
@@ -50,23 +41,23 @@ cp .env.example .env
 
 4. Inicie os contêineres Docker:
 \`\`\`bash
-./vendor/bin/sail up -d
+docker compose up -d
 \`\`\`
 
-5. Gere a chave da aplicação:
+6. Gere a chave da aplicação:
 \`\`\`bash
-./vendor/bin/sail artisan key:generate
+artisan key:generate
 \`\`\`
 
-6. Execute as migrações e seeders:
+7. Execute as migrações e seeders:
 \`\`\`bash
-./vendor/bin/sail artisan migrate --seed
+artisan migrate --seed
 \`\`\`
 
-7. Instale as dependências do Node.js e compile os assets:
+8. Instale as dependências do Node.js e compile os assets:
 \`\`\`bash
-./vendor/bin/sail npm install
-./vendor/bin/sail npm run dev
+npm install
+npm run dev
 \`\`\`
 
 ### Instalação Local (sem Docker)
