@@ -12,6 +12,16 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    port: 5173,
+    proxy: {   
+      '/api': {
+        target: 'http://project-blog-nginx',
+        changeOrigin: true,
+        secure: false,       
+      }
+    }
+  },
   resolve: {
     alias: {
       "@": "/src",

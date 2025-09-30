@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import axios from "axios"
+import api from "@/plugins/axios"
 import { useNotificationStore } from "./notification"
 
 export const useSectionStore = defineStore("section", {
@@ -15,7 +15,7 @@ export const useSectionStore = defineStore("section", {
       this.loading = true
 
       try {
-        const response = await axios.get("/sections")
+        const response = await api.get("/sections")
         this.sections = response.data.data
         return response.data.data
       } catch (error) {
@@ -30,7 +30,7 @@ export const useSectionStore = defineStore("section", {
       this.loading = true
 
       try {
-        const response = await axios.get(`/sections/${slug}`)
+        const response = await api.get(`/sections/${slug}`)
         this.section = response.data.data
         return response.data.data
       } catch (error) {
@@ -60,7 +60,7 @@ export const useSectionStore = defineStore("section", {
           formData.append("featured_image", sectionData.featured_image)
         }
 
-        const response = await axios.post("/sections", formData, {
+        const response = await api.post("/sections", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -107,7 +107,7 @@ export const useSectionStore = defineStore("section", {
           formData.append("featured_image", sectionData.featured_image)
         }
 
-        const response = await axios.post(`/sections/${id}`, formData, {
+        const response = await api.post(`/sections/${id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -142,7 +142,7 @@ export const useSectionStore = defineStore("section", {
       this.loading = true
 
       try {
-        await axios.delete(`/sections/${id}`)
+        await api.delete(`/sections/${id}`)
 
         // Remove from local state
         this.sections = this.sections.filter((section) => section.id !== id)

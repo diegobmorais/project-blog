@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import axios from "axios"
+import api from "@/plugins/axios"
 import { useNotificationStore } from "./notification"
 
 export const useUserStore = defineStore("user", {
@@ -15,7 +15,7 @@ export const useUserStore = defineStore("user", {
       this.loading = true
 
       try {
-        const response = await axios.get("/users")
+        const response = await api.get("/users")
         this.users = response.data.data
         return response.data.data
       } catch (error) {
@@ -30,7 +30,7 @@ export const useUserStore = defineStore("user", {
       this.loading = true
 
       try {
-        const response = await axios.get(`/users/${id}`)
+        const response = await api.get(`/users/${id}`)
         this.user = response.data.data
         return response.data.data
       } catch (error) {
@@ -60,7 +60,7 @@ export const useUserStore = defineStore("user", {
           formData.append("avatar", userData.avatar)
         }
 
-        const response = await axios.post("/users", formData, {
+        const response = await api.post("/users", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -107,7 +107,7 @@ export const useUserStore = defineStore("user", {
           formData.append("avatar", userData.avatar)
         }
 
-        const response = await axios.post(`/users/${id}`, formData, {
+        const response = await api.post(`/users/${id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -142,7 +142,7 @@ export const useUserStore = defineStore("user", {
       this.loading = true
 
       try {
-        await axios.delete(`/users/${id}`)
+        await api.delete(`/users/${id}`)
 
         // Remove from local state
         this.users = this.users.filter((user) => user.id !== id)

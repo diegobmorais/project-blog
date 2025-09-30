@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import axios from "axios"
+import api from "@/plugins/api"
 import { useNotificationStore } from "./notification"
 
 export const useArticleStore = defineStore("article", {
@@ -33,7 +33,7 @@ export const useArticleStore = defineStore("article", {
           ...this.filters,
         }
 
-        const response = await axios.get("/articles", { params })
+        const response = await api.get("/articles", { params })
         this.articles = response.data.data
         this.pagination = {
           current_page: response.data.meta.current_page,
@@ -55,7 +55,7 @@ export const useArticleStore = defineStore("article", {
       this.loading = true
 
       try {
-        const response = await axios.get(`/articles/${slug}`)
+        const response = await api.get(`/articles/${slug}`)
         this.article = response.data.data
         return response.data.data
       } catch (error) {
@@ -96,7 +96,7 @@ export const useArticleStore = defineStore("article", {
           formData.append("social_image", articleData.social_image)
         }
 
-        const response = await axios.post("/articles", formData, {
+        const response = await api.post("/articles", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -151,7 +151,7 @@ export const useArticleStore = defineStore("article", {
           formData.append("social_image", articleData.social_image)
         }
 
-        const response = await axios.post(`/articles/${id}`, formData, {
+        const response = await api.post(`/articles/${id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -180,7 +180,7 @@ export const useArticleStore = defineStore("article", {
       this.loading = true
 
       try {
-        await axios.delete(`/articles/${id}`)
+        await api.delete(`/articles/${id}`)
 
         // Remove from local state
         this.articles = this.articles.filter((article) => article.id !== id)
@@ -206,7 +206,7 @@ export const useArticleStore = defineStore("article", {
         const formData = new FormData()
         formData.append("image", file)
 
-        const response = await axios.post("/articles/upload-image", formData, {
+        const response = await api.post("/articles/upload-image", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import axios from "axios"
+import api from "@/plugins/api"
 import { useNotificationStore } from "./notification"
 
 export const useAdStore = defineStore("ad", {
@@ -15,7 +15,7 @@ export const useAdStore = defineStore("ad", {
       this.loading = true
 
       try {
-        const response = await axios.get("/ads")
+        const response = await api.get("/ads")
         this.ads = response.data.data
         return response.data.data
       } catch (error) {
@@ -30,7 +30,7 @@ export const useAdStore = defineStore("ad", {
       this.loading = true
 
       try {
-        const response = await axios.get(`/ads/${id}`)
+        const response = await api.get(`/ads/${id}`)
         this.ad = response.data.data
         return response.data.data
       } catch (error) {
@@ -45,7 +45,7 @@ export const useAdStore = defineStore("ad", {
       this.loading = true
 
       try {
-        const response = await axios.get(`/ads/${position}`)
+        const response = await api.get(`/ads/${position}`)
         return response.data.data
       } catch (error) {
         // Silently fail for public ad fetching
@@ -61,7 +61,7 @@ export const useAdStore = defineStore("ad", {
       this.loading = true
 
       try {
-        const response = await axios.post("/ads", adData)
+        const response = await api.post("/ads", adData)
 
         // Add to local state
         this.ads.push(response.data.data)
@@ -89,7 +89,7 @@ export const useAdStore = defineStore("ad", {
       this.loading = true
 
       try {
-        const response = await axios.put(`/ads/${id}`, adData)
+        const response = await api.put(`/ads/${id}`, adData)
 
         // Update in local state
         const index = this.ads.findIndex((ad) => ad.id === id)
@@ -120,7 +120,7 @@ export const useAdStore = defineStore("ad", {
       this.loading = true
 
       try {
-        await axios.delete(`/ads/${id}`)
+        await api.delete(`/ads/${id}`)
 
         // Remove from local state
         this.ads = this.ads.filter((ad) => ad.id !== id)

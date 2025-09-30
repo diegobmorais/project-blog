@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import axios from "axios"
+import api from "@/plugins/axios"
 import { useNotificationStore } from "./notification"
 
 export const useAuthStore = defineStore("auth", {
@@ -17,7 +17,7 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     async login(credentials) {
       try {
-        const response = await axios.post("/login", credentials)
+        const response = await api.post("/login", credentials)
         this.setUserData(response.data)
         return response.data
       } catch (error) {
@@ -30,7 +30,7 @@ export const useAuthStore = defineStore("auth", {
 
       try {
         if (this.token) {
-          await axios.post("/logout")
+          await api.post("/logout")
         }
       } catch (error) {
         console.error("Logout error:", error)
@@ -47,7 +47,7 @@ export const useAuthStore = defineStore("auth", {
       if (!this.token) return
 
       try {
-        const response = await axios.get("/user")
+        const response = await api.get("/user")
         this.user = response.data
       } catch (error) {
         console.error("Auth check error:", error)
@@ -59,14 +59,14 @@ export const useAuthStore = defineStore("auth", {
       this.user = data.user
       this.token = data.token
       localStorage.setItem("token", data.token)
-      axios.defaults.headers.common["Authorization"] = `Bearer ${data.token}`
+      api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`
     },
 
     clearUserData() {
       this.user = null
       this.token = null
       localStorage.removeItem("token")
-      delete axios.defaults.headers.common["Authorization"]
+      delete api.defaults.headers.common["Authorization"]
     },
   },
 })

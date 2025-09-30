@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import axios from "axios"
+import api from "@/plugins/axios"
 
 export const useDashboardStore = defineStore("dashboard", {
   state: () => ({
@@ -13,7 +13,7 @@ export const useDashboardStore = defineStore("dashboard", {
       this.loading = true
 
       try {
-        const response = await axios.get("/dashboard")
+        const response = await api.get("/dashboard")
         this.stats = response.data
         return response.data
       } catch (error) {
