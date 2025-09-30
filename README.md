@@ -23,53 +23,51 @@ Um blog moderno construído com Laravel 12 e Vue 3, com painel administrativo co
 - MySQL 8.0+
 - Docker (opcional, para usar com Laravel Sail)
 
-## Instalação
-
-### Usando Docker com Laravel Sail
+### Instalação
 
 1. Clone o repositório:
-  \`\`\`bash
+  ```bash
   git clone https://github.com/diegobmorais/project-blog.git
-  \`\`\`
+  ```
 
 2. Instale as dependências do PHP
 
 3. Configure o arquivo .env:
-  \`\`\`bash
+  ```bash
   cp .env.example .env
-  \`\`\`
+  ```
 
 4. Inicie os contêineres Docker:
-  \`\`\`bash
+  ```bash
   docker compose up -d --build
-  \`\`\`
+  ```
 
 6. Gere a chave da aplicação:
-  \`\`\`bash
+  ```bash
   artisan key:generate
-  \`\`\`
+  ```
 
 7. Execute as migrações e seeders:
-  \`\`\`bash
+  ```bash
   artisan migrate --seed
-  \`\`\`
+  ```
 
 8. Instale as dependências do Node.js e compile os assets:
-    \`\`\`bash
+    ```bash
     npm install
     npm run dev
-    \`\`\`
+    ```
 
 9. Corrija os permissionamentos dentro do container
-   \`\`\`bash
+   ```bash
    chown -R www-data:www-data /var/www/storage
    chmod -R 775 storage bootstrap/cache
-   \`\`\`
+   ```
    
 11. Publique o provider sanctum
-  \`\`\`bash
+  ```bash
   php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
-  \`\`\`
+  ```
 
 ## Acessando o Sistema
 
